@@ -8,6 +8,8 @@ const {connectDB} = require('./config/db.js');
 const app = express();
 
 dotenv.config();
+// assign port
+const PORT = process.env.PORT || 3000;
 
 // middleware
 app.use(express.json());
@@ -23,8 +25,8 @@ app.get('/', function (req, res) {
 })
 
 // -------- Listening on Port and connect to DB ----------//
-app.listen(3000, () => {
+app.listen(PORT, () => {
     connectDB();
-    console.log('Server running on port 3000');
+    console.log(`Server running on port ${PORT}`);
 })
 
